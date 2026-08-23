@@ -60,6 +60,28 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 30
 
+      # actions/upload-artifact stores through Azure Blob Storage, which
+      # isn't reachable from every network this repo's Claude sessions run
+      # in. Also publish the debug APK straight into the repo on a small
+      # dedicated orphan branch (built fresh in a temp dir, independent of
+      # the main checkout) so it's fetchable with plain `git fetch` instead.
+      - name: Publish debug APK to the apk-builds branch
+        run: |
+          APK_PATH=$(find app/build/outputs/apk/debug -name "*.apk" | head -1)
+          PUBLISH_DIR="$RUNNER_TEMP/apk-publish"
+          rm -rf "$PUBLISH_DIR"
+          mkdir -p "$PUBLISH_DIR"
+          cp "$APK_PATH" "$PUBLISH_DIR/habitude-debug.apk"
+          cd "$PUBLISH_DIR"
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add habitude-debug.apk
+          git commit -q -m "Debug APK built from ${{ github.sha }}"
+          git branch -M apk-builds
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push -f origin apk-builds
+
       - name: Build release APK (unsigned unless keystore secrets are configured)
         env:
           RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
