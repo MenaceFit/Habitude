@@ -9,9 +9,9 @@ import com.menacefit.habitude.data.repository.StatsRepository
 import com.menacefit.habitude.domain.model.DailyStatsSnapshot
 import com.menacefit.habitude.domain.model.Habit
 import com.menacefit.habitude.domain.model.HabitCategory
+import com.menacefit.habitude.domain.model.ConsistencyBreakdown
 import com.menacefit.habitude.domain.model.isPeriodBased
 import com.menacefit.habitude.domain.model.isScheduledOn
-import com.menacefit.habitude.domain.stats.ConsistencyBreakdown
 import com.menacefit.habitude.domain.stats.ConsistencyInputs
 import com.menacefit.habitude.domain.stats.ConsistencyScoreCalculator
 import com.menacefit.habitude.domain.stats.HabitStatEntry

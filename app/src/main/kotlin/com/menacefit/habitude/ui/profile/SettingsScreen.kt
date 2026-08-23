@@ -122,9 +122,9 @@ fun SettingsScreen(onBack: () -> Unit) {
             item {
                 SettingsSection(stringResource(R.string.settings_section_appearance)) {
                     Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                        SelectableChip(stringResource(R.string.theme_system), settings.themeMode == ThemeMode.SYSTEM) { viewModel.setThemeMode(ThemeMode.SYSTEM) }
-                        SelectableChip(stringResource(R.string.theme_light), settings.themeMode == ThemeMode.LIGHT) { viewModel.setThemeMode(ThemeMode.LIGHT) }
-                        SelectableChip(stringResource(R.string.theme_dark), settings.themeMode == ThemeMode.DARK) { viewModel.setThemeMode(ThemeMode.DARK) }
+                        SelectableChip(stringResource(R.string.theme_system), settings.themeMode == ThemeMode.SYSTEM, onClick = { viewModel.setThemeMode(ThemeMode.SYSTEM) })
+                        SelectableChip(stringResource(R.string.theme_light), settings.themeMode == ThemeMode.LIGHT, onClick = { viewModel.setThemeMode(ThemeMode.LIGHT) })
+                        SelectableChip(stringResource(R.string.theme_dark), settings.themeMode == ThemeMode.DARK, onClick = { viewModel.setThemeMode(ThemeMode.DARK) })
                     }
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
                         items(AccentColor.entries) { accent ->
@@ -146,19 +146,19 @@ fun SettingsScreen(onBack: () -> Unit) {
                 SettingsSection(stringResource(R.string.settings_section_preferences)) {
                     Text(stringResource(R.string.settings_week_start), style = MaterialTheme.typography.bodyMedium)
                     Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                        SelectableChip(stringResource(R.string.week_start_monday), settings.weekStart == WeekStartPreference.MONDAY) { viewModel.setWeekStart(WeekStartPreference.MONDAY) }
-                        SelectableChip(stringResource(R.string.week_start_sunday), settings.weekStart == WeekStartPreference.SUNDAY) { viewModel.setWeekStart(WeekStartPreference.SUNDAY) }
+                        SelectableChip(stringResource(R.string.week_start_monday), settings.weekStart == WeekStartPreference.MONDAY, onClick = { viewModel.setWeekStart(WeekStartPreference.MONDAY) })
+                        SelectableChip(stringResource(R.string.week_start_sunday), settings.weekStart == WeekStartPreference.SUNDAY, onClick = { viewModel.setWeekStart(WeekStartPreference.SUNDAY) })
                     }
                     Text(stringResource(R.string.settings_time_format), style = MaterialTheme.typography.bodyMedium)
                     Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                        SelectableChip("24h", settings.timeFormat == TimeFormatPreference.HOUR_24) { viewModel.setTimeFormat(TimeFormatPreference.HOUR_24) }
-                        SelectableChip("12h", settings.timeFormat == TimeFormatPreference.HOUR_12) { viewModel.setTimeFormat(TimeFormatPreference.HOUR_12) }
+                        SelectableChip("24h", settings.timeFormat == TimeFormatPreference.HOUR_24, onClick = { viewModel.setTimeFormat(TimeFormatPreference.HOUR_24) })
+                        SelectableChip("12h", settings.timeFormat == TimeFormatPreference.HOUR_12, onClick = { viewModel.setTimeFormat(TimeFormatPreference.HOUR_12) })
                     }
                     Text(stringResource(R.string.settings_language), style = MaterialTheme.typography.bodyMedium)
                     Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                        SelectableChip(stringResource(R.string.language_system), settings.language == AppLanguage.SYSTEM) { viewModel.setLanguage(AppLanguage.SYSTEM) }
-                        SelectableChip(stringResource(R.string.language_french), settings.language == AppLanguage.FRENCH) { viewModel.setLanguage(AppLanguage.FRENCH) }
-                        SelectableChip(stringResource(R.string.language_english), settings.language == AppLanguage.ENGLISH) { viewModel.setLanguage(AppLanguage.ENGLISH) }
+                        SelectableChip(stringResource(R.string.language_system), settings.language == AppLanguage.SYSTEM, onClick = { viewModel.setLanguage(AppLanguage.SYSTEM) })
+                        SelectableChip(stringResource(R.string.language_french), settings.language == AppLanguage.FRENCH, onClick = { viewModel.setLanguage(AppLanguage.FRENCH) })
+                        SelectableChip(stringResource(R.string.language_english), settings.language == AppLanguage.ENGLISH, onClick = { viewModel.setLanguage(AppLanguage.ENGLISH) })
                     }
                 }
             }

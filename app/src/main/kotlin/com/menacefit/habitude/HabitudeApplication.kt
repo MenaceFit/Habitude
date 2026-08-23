@@ -19,8 +19,8 @@ class HabitudeApplication : Application(), Configuration.Provider {
         NotificationChannels.ensureCreated(this)
     }
 
-    override fun getWorkManagerConfiguration(): Configuration =
-        Configuration.Builder()
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
             .setWorkerFactory(HabitudeWorkerFactory(container))
             .build()
 }
