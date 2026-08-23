@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Classic (pre-core-splashscreen) launch background: MainActivity applies
+    Theme.Habitude.Splash only until its first frame, then calls
+    setTheme(R.style.Theme_Habitude) before setContent so Compose takes over.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_background" />
+    <item android:gravity="center" android:width="180dp" android:height="180dp">
+        <vector
+            android:width="180dp"
+            android:height="180dp"
+            android:viewportWidth="108"
+            android:viewportHeight="108">
+            <path
+                android:pathData="M24,54 A30,30 0 1,0 84,54 A30,30 0 1,0 24,54"
+                android:strokeColor="#FFFFFFFF"
+                android:strokeWidth="7"
+                android:fillColor="#00000000" />
+            <path
+                android:pathData="M39,55 L50,66 L71,40"
+                android:strokeColor="#FFFFFFFF"
+                android:strokeWidth="8"
+                android:strokeLineCap="round"
+                android:strokeLineJoin="round"
+                android:fillColor="#00000000" />
+        </vector>
+    </item>
+</layer-list>

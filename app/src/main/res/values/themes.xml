@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        All real UI theming happens in Compose (ui/theme/Theme.kt); these
+        classic View-system themes only cover what Compose can't reach: the
+        application/activity manifest theme attribute Android requires
+        before any Compose code runs, and the brief pre-Compose splash frame.
+    -->
+    <style name="Theme.Habitude" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/grey_50</item>
+        <item name="android:navigationBarColor">@color/grey_50</item>
+        <item name="android:windowBackground">@color/grey_50</item>
+        <item name="android:colorBackground">@color/grey_50</item>
+    </style>
+
+    <style name="Theme.Habitude.Splash">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:statusBarColor">@color/splash_background</item>
+        <item name="android:navigationBarColor">@color/splash_background</item>
+    </style>
+</resources>

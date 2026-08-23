@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Habitude stores everything locally (Room database + DataStore
+    preferences). Both are included in Android's automatic backup so a
+    user's habits, streaks and XP survive a device change — this is the
+    only "sync" the app does, and it's Android's own backup service, not a
+    server this app talks to.
+-->
+<full-backup-content>
+    <include domain="database" path="." />
+    <include domain="sharedpref" path="." />
+    <include domain="file" path="datastore/" />
+</full-backup-content>

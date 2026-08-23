@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Mirrors ui/theme/Color.kt (Neutral scale + AccentColor.VIOLET, the
+        default accent). All real in-app theming happens in Compose
+        (HabitudeTheme); this XML palette only backs the classic View-system
+        surfaces that exist outside Compose — the launch/splash theme, the
+        widget RemoteViews, and notification tinting — so it must stay
+        visually consistent with the Compose palette without being read by it.
+    -->
+    <color name="black">#FF0B0B0F</color>
+    <color name="grey_950">#FF121218</color>
+    <color name="grey_900">#FF17171F</color>
+    <color name="grey_800">#FF232330</color>
+    <color name="grey_700">#FF32323F</color>
+    <color name="grey_600">#FF4A4A5A</color>
+    <color name="grey_500">#FF6B6B7C</color>
+    <color name="grey_400">#FF93939F</color>
+    <color name="grey_300">#FFB8B8C4</color>
+    <color name="grey_200">#FFDCDCE3</color>
+    <color name="grey_100">#FFEFEFF3</color>
+    <color name="grey_50">#FFF7F7FA</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="accent_violet_light">#FF6E56CF</color>
+    <color name="accent_violet_dark">#FF9B87F5</color>
+
+    <color name="danger_light">#FFD7373F</color>
+    <color name="danger_dark">#FFFF6B6B</color>
+
+    <color name="splash_background">@color/accent_violet_light</color>
+</resources>
