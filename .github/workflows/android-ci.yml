@@ -14,6 +14,8 @@ jobs:
   build:
     name: Test and build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -66,6 +68,7 @@ jobs:
       # dedicated orphan branch (built fresh in a temp dir, independent of
       # the main checkout) so it's fetchable with plain `git fetch` instead.
       - name: Publish debug APK to the apk-builds branch
+        continue-on-error: true
         run: |
           APK_PATH=$(find app/build/outputs/apk/debug -name "*.apk" | head -1)
           PUBLISH_DIR="$RUNNER_TEMP/apk-publish"
